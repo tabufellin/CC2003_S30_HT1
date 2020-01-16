@@ -52,6 +52,10 @@ public class MaquinaRadio implements Radio {
             }
         }
     }
+    
+    public double getCurrentFmStation() {
+        return this.currentFmStation;
+    }
 
 
 }
