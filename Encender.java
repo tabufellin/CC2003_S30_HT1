@@ -52,10 +52,26 @@ public class MaquinaRadio implements Radio {
             }
         }
     }
-    
+
+    // Methods to obtain current value of variables
+
     public double getCurrentFmStation() {
         return this.currentFmStation;
     }
 
+    public boolean isEncendido() {
+        return encendido;
+    }
 
+    public String getEstacionGuardada() {
+        return estacionGuardada;
+    }
+
+    public int getCurrentAmStation() {
+        return currentAmStation;
+    }
+
+    public boolean isTipoFrecuencia() {
+        return tipoFrecuencia;
+    }
 }
