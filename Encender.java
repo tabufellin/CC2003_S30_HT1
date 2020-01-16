@@ -63,6 +63,7 @@ public class MaquinaRadio implements Radio {
 
     public double seleccionarEstacion(boolean tipoFrecuencia, int boton) {
         System.out.println(UNDER_DEVELOPMENT_METHOD);
+        return -1;
     }
 
 
