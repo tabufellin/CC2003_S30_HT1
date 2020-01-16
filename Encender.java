@@ -1,5 +1,7 @@
-public class MaquinaRadio implements Radio {
+import java.sql.SQLOutput;
 
+public class MaquinaRadio implements Radio {
+    private static final String UNDER_DEVELOPMENT_METHOD = "Method is under development";
     private boolean encendido;
     private String estacionGuardada;
     private int currentAmStation = 550;
@@ -53,7 +55,19 @@ public class MaquinaRadio implements Radio {
         }
     }
 
-    // Methods to obtain current value of variables
+    //*******************INCOMPLETE METHODS*****************************************************************************
+
+    public void guardarEstacion(double estacion, boolean tipoFrecuencia, int boton){
+        System.out.println(UNDER_DEVELOPMENT_METHOD);
+    }
+
+    public double seleccionarEstacion(boolean tipoFrecuencia, int boton) {
+        System.out.println(UNDER_DEVELOPMENT_METHOD);
+    }
+
+
+
+    // Methods to obtain current value of variables; getters
 
     public double getCurrentFmStation() {
         return this.currentFmStation;
