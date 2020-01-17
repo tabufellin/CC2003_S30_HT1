@@ -1,13 +1,20 @@
-import java.sql.SQLOutput;
-
 public class MaquinaRadio implements Radio {
 
-    private static final String UNDER_DEVELOPMENT_METHOD = "Method is under development";
-    private boolean encendido;
-    private String estacionGuardada;
-    private int currentAmStation = 550;
-    private double currentFmStation = 90.1;
-    private boolean tipoFrecuencia = false;   // false para FM, true para AM
+    static final String UNDER_DEVELOPMENT_METHOD = "Method is under development";
+    boolean encendido;
+    String estacionGuardada;
+    int currentAmStation = 550;
+    int maxCurrentAmStation = 1610;
+    int minCurrentAmStation = 530;
+    double currentFmStation = 90.1;
+    boolean tipoFrecuencia = false;   // false para FM, true para AM
+    ArrayList <Double>[12] botonesAM;
+    ArrayList <Double>[12] botonesFM;
+
+
+    // hay que darle la estacion que va a estar en ese momento
+    double currentStation;
+    
 
     public void encender() {
         this.encendido = true;
@@ -17,42 +24,52 @@ public class MaquinaRadio implements Radio {
         this.encendido = false;
     }
 
+    // Creo que ya esta terminado este metodo
     public void cambioTipoFrecuencia(boolean tipo) {
+        this.tipoFrecuencia = !this.tipoFrecuencia;
         if (tipo) {
-            this.tipoFrecuencia = !this.tipoFrecuencia;
+            currentStation=  currentAmStation;
+        } else {
+            currentStation = currentFmStation;
         }
+
     }
 
     public void cambioEstacion(boolean tipo, boolean tipoFrecuencia) {
         // AM frequency 
         if (tipoFrecuencia) {
-            if (tipo && this.currentAmStation < 1610) {
-                this.currentAmStation += 10;
+            if (tipo) {
+                if (currentAmStation < maxCurrentAmStation) {
+                    currentAmStation += 10;
+                }
+                else {
+                    // falta asignarle el valor
+                    currentAmStation = minCurrentAmStation;
+                }
+                
             } else {
-                this.currentAmStation -= 10;
-            }
-
-            // Checks if the station is within the defined range, and overflows or underflows accordingly
-            if (this.currentAmStation > 1610) {
-                this.currentAmStation = 530;
-            } else if (this.currentAmStation < 530) {
-                this.currentAmStation = 1610;
+                if (currentAmStation > minCurrentAmStation + 10) {
+                    currentAmStation -= 10;
+                }
+                else {
+                    currentAmStation = maxCurrentAmStation
+                }
             }
 
         // FM frequency
         } else {
-            if (tipo && this.currentFmStation < 107.9) {
-                this.currentFmStation += 0.2;
+            if (tipo && currentFmStation < 107.9) {
+                currentFmStation += 0.2;
             } else {
-                this.currentFmStation -= 0.2;
+                currentFmStation -= 0.2;
             }
 
             // Checks if the station is within the defined range, and overflows or underflows accordingly
-            if (this.currentFmStation > 107.9) {
-                this.currentFmStation = 87.9;
+            if (currentFmStation > 107.9) {
+                currentFmStation = 87.9;
 
-            } else if (this.currentFmStation < 87.9) {
-                this.currentFmStation = 107.9;
+            } else if (currentFmStation < 87.9) {
+                currentFmStation = 107.9;
             }
         }
     }
@@ -60,7 +77,14 @@ public class MaquinaRadio implements Radio {
 //***********************INCOMPLETE METHODS*****************************************************************************
 
     public void guardarEstacion(double estacion, boolean tipoFrecuencia, int boton){
-        System.out.println(UNDER_DEVELOPMENT_METHOD);
+
+        boton -=1;
+        //if AM --------else FM
+        if (tipoFrecuencia) {
+            botonesAM[boton] = estacion
+        } else {
+            botonesFM[boton] = estacion
+        }
     }
 
     public double seleccionarEstacion(boolean tipoFrecuencia, int boton) {
