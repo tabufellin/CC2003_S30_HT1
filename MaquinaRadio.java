@@ -8,12 +8,21 @@ public class MaquinaRadio implements Radio {
     int minCurrentAmStation = 530;
     double currentFmStation = 90.1;
     boolean tipoFrecuencia = false;   // false para FM, true para AM
-    ArrayList <Double>[12] botonesAM;
-    ArrayList <Double>[12] botonesFM;
+    double[] botonesAM;
+    double[] botonesFM;
 
 
     // hay que darle la estacion que va a estar en ese momento
     double currentStation;
+
+    public MaquinaRadio() {
+
+        encendido = true;
+        botonesAM = new double[12];
+        botonesFM = new double[12];
+
+
+    }
     
 
     public void encender() {
@@ -52,7 +61,7 @@ public class MaquinaRadio implements Radio {
                     currentAmStation -= 10;
                 }
                 else {
-                    currentAmStation = maxCurrentAmStation
+                    currentAmStation = maxCurrentAmStation;
                 }
             }
 
@@ -81,15 +90,29 @@ public class MaquinaRadio implements Radio {
         boton -=1;
         //if AM --------else FM
         if (tipoFrecuencia) {
-            botonesAM[boton] = estacion
+            botonesAM[boton] = estacion;
         } else {
-            botonesFM[boton] = estacion
+            botonesFM[boton] = estacion;
         }
     }
 
     public double seleccionarEstacion(boolean tipoFrecuencia, int boton) {
-        System.out.println(UNDER_DEVELOPMENT_METHOD);
-        return -1;
+
+        boton -= 1;
+
+        // if AM tipoFrecuencia = true
+        // y else FM = false
+        if (tipoFrecuencia){
+
+            currentStation = botonesAM[boton];
+
+        } else {
+
+            currentStation = botonesFM[boton];
+
+        }
+        
+        return currentStation;
     }
 
 
@@ -100,7 +123,7 @@ public class MaquinaRadio implements Radio {
         return this.currentFmStation;
     }
 
-    public boolean isEncendido() {
+    public boolean getEncendido() {
         return encendido;
     }
 
