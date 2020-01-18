@@ -2,8 +2,15 @@ package com;
 
 import javax.swing.*;
 
-public class RadioGUI {
-    private JPanel panel1;
+public class RadioGUI extends JFrame {
+    public RadioGUI () {
+        // Uses the designed interface
+        add(mainPanel);
+
+        setTitle("Radio Matrix");
+        setSize(570, 300);
+    }
+    private JPanel mainPanel;
     private JButton offButton;
     private JButton onButton;
     private JRadioButton AMFMRadioButton;
