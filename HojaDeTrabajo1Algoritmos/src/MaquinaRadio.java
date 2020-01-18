@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-
 public class MaquinaRadio implements Radio {
 
     private static final String UNDER_DEVELOPMENT_METHOD = "Method is under development";
@@ -24,7 +22,7 @@ public class MaquinaRadio implements Radio {
     }
 
     public void cambioEstacion(boolean tipo, boolean tipoFrecuencia) {
-        // AM frequency 
+        // AM frequency
         if (tipoFrecuencia) {
             if (tipo && this.currentAmStation < 1610) {
                 this.currentAmStation += 10;
@@ -39,7 +37,7 @@ public class MaquinaRadio implements Radio {
                 this.currentAmStation = 1610;
             }
 
-        // FM frequency
+            // FM frequency
         } else {
             if (tipo) {
                 this.currentFmStation += 0.2;
