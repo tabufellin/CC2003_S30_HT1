@@ -1,9 +1,3 @@
-package projects.code;
-
-import com.RadioGUI;
-
-import javax.swing.*;
-
 public class Main {
 
     public static void main(String[] args) {

@@ -23,7 +23,7 @@ public class MaquinaRadio implements Radio {
 
 
     }
-    
+
 
     public void encender() {
         this.encendido = true;
@@ -45,7 +45,7 @@ public class MaquinaRadio implements Radio {
     }
 
     public void cambioEstacion(boolean tipo, boolean tipoFrecuencia) {
-        // AM frequency 
+        // AM frequency
         if (tipoFrecuencia) {
             if (tipo) {
                 if (currentAmStation < maxCurrentAmStation) {
@@ -55,7 +55,7 @@ public class MaquinaRadio implements Radio {
                     // falta asignarle el valor
                     currentAmStation = minCurrentAmStation;
                 }
-                
+
             } else {
                 if (currentAmStation > minCurrentAmStation + 10) {
                     currentAmStation -= 10;
@@ -65,7 +65,7 @@ public class MaquinaRadio implements Radio {
                 }
             }
 
-        // FM frequency
+            // FM frequency
         } else {
             if (tipo && currentFmStation < 107.9) {
                 currentFmStation += 0.2;
@@ -111,7 +111,7 @@ public class MaquinaRadio implements Radio {
             currentStation = botonesFM[boton];
 
         }
-        
+
         return currentStation;
     }
 

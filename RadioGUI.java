@@ -1,5 +1,3 @@
-package com;
-
 import javax.swing.*;
 
 public class RadioGUI extends JFrame {
@@ -11,8 +9,7 @@ public class RadioGUI extends JFrame {
         setSize(570, 300);
     }
     private JPanel mainPanel;
-    private JButton offButton;
-    private JButton onButton;
+    private JButton onOffButton;
     private JRadioButton AMFMRadioButton;
     private JTextField radioMatrixTextField;
     private JButton button1;
