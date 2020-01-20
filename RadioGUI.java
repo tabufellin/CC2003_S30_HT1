@@ -66,6 +66,7 @@ public class RadioGUI extends JFrame {
         public void actionPerformed(ActionEvent event) {
 
 
+
             if (event.getSource() == onOffButton) {
                 if (radio.getEncendido()) {
                     radio.apagar();
@@ -80,211 +81,217 @@ public class RadioGUI extends JFrame {
                 }
             }
 
-            if (event.getSource() == AMFMButton) {
-                if (radio.getTipoFrecuencia()) {
-                    radio.cambioTipoFrecuencia(false);
-                    System.out.println("Se cambio a FM");
-                    System.out.println(radio.getTipoFrecuencia());
+            boolean on = radio.getEncendido();
 
-                } else {
-                    radio.cambioTipoFrecuencia(true);
-                    System.out.println("Se cambio a AM");
-                    System.out.println(radio.getTipoFrecuencia());
+            if (on) {
+
+
+                if (event.getSource() == AMFMButton) {
+                    if (radio.getTipoFrecuencia()) {
+                        radio.cambioTipoFrecuencia(false);
+                        System.out.println("Se cambio a FM");
+                        System.out.println(radio.getTipoFrecuencia());
+
+                    } else {
+                        radio.cambioTipoFrecuencia(true);
+                        System.out.println("Se cambio a AM");
+                        System.out.println(radio.getTipoFrecuencia());
+
+                    }
+                }
+
+                if (event.getSource() == back) {
+                    boolean whichFrequency = radio.getTipoFrecuencia();
+                    radio.cambioEstacion(false, whichFrequency);
+                    System.out.println(whichFrequency);
+                    System.out.println(radio.currentFmStation);
+                    System.out.println(radio.currentAmStation);
+                }
+
+                if (event.getSource() == forward) {
+                    boolean whichFrequency = radio.getTipoFrecuencia();
+                    radio.cambioEstacion(true, whichFrequency);
+                    System.out.println(whichFrequency);
+                    System.out.println(radio.currentFmStation);
+                    System.out.println(radio.currentAmStation);
+                }
+
+                if (event.getSource() == a1Button) {
+                    int x = 1;
+                    boolean whichFrequency = radio.getTipoFrecuencia();
+
+                    double currentStation = radio.seleccionarEstacion(whichFrequency, x);
+                    radio.setCurrentStation(currentStation);
+                    radio.setBotonParaGuardad(x);
+
+                    System.out.println(radio.getCurrentStation());
+
 
                 }
-            }
 
-            if (event.getSource() == back) {
-                boolean whichFrequency = radio.getTipoFrecuencia();
-                radio.cambioEstacion(false, whichFrequency);
-                System.out.println(whichFrequency);
-                System.out.println(radio.currentFmStation);
-                System.out.println(radio.currentAmStation);
-            }
+                if (event.getSource() == a2Button) {
+                    int x = 2;
+                    boolean whichFrequency = radio.getTipoFrecuencia();
 
-            if (event.getSource() == forward) {
-                boolean whichFrequency = radio.getTipoFrecuencia();
-                radio.cambioEstacion(true, whichFrequency);
-                System.out.println(whichFrequency);
-                System.out.println(radio.currentFmStation);
-                System.out.println(radio.currentAmStation);
-            }
+                    double currentStation = radio.seleccionarEstacion(whichFrequency, x);
+                    radio.setCurrentStation(currentStation);
+                    radio.setBotonParaGuardad(x);
 
-            if (event.getSource() == a1Button) {
-                int x = 1;
-                boolean whichFrequency = radio.getTipoFrecuencia();
+                    System.out.println(radio.getCurrentStation());
 
-                double currentStation = radio.seleccionarEstacion(whichFrequency,x);
-                radio.setCurrentStation(currentStation);
-                radio.setBotonParaGuardad(x);
+                }
 
-                System.out.println(radio.getCurrentStation());
+                if (event.getSource() == a3Button) {
+                    int x = 3;
+                    boolean whichFrequency = radio.getTipoFrecuencia();
+
+                    double currentStation = radio.seleccionarEstacion(whichFrequency, x);
+                    radio.setCurrentStation(currentStation);
+                    radio.setBotonParaGuardad(x);
+
+                    System.out.println(radio.getCurrentStation());
+
+                }
+
+                if (event.getSource() == a4Button) {
+                    int x = 4;
+                    boolean whichFrequency = radio.getTipoFrecuencia();
+
+                    double currentStation = radio.seleccionarEstacion(whichFrequency, x);
+                    radio.setCurrentStation(currentStation);
+                    radio.setBotonParaGuardad(x);
+
+                    System.out.println(currentStation);
+
+                }
+
+                if (event.getSource() == a5Button) {
+                    int x = 5;
+                    boolean whichFrequency = radio.getTipoFrecuencia();
+
+                    double currentStation = radio.seleccionarEstacion(whichFrequency, x);
+                    radio.setCurrentStation(currentStation);
+                    radio.setBotonParaGuardad(x);
+
+                    System.out.println(currentStation);
+
+                }
+
+                if (event.getSource() == a6Button) {
+                    int x = 6;
+                    boolean whichFrequency = radio.getTipoFrecuencia();
+
+                    double currentStation = radio.seleccionarEstacion(whichFrequency, x);
+                    radio.setCurrentStation(currentStation);
+                    radio.setBotonParaGuardad(x);
+
+                    System.out.println(currentStation);
+
+                }
+
+                if (event.getSource() == a7Button) {
+                    int x = 7;
+                    boolean whichFrequency = radio.getTipoFrecuencia();
+
+                    double currentStation = radio.seleccionarEstacion(whichFrequency, x);
+                    radio.setCurrentStation(currentStation);
+                    radio.setBotonParaGuardad(x);
+
+                    System.out.println(currentStation);
+
+                }
+
+                if (event.getSource() == a8Button) {
+                    int x = 8;
+                    boolean whichFrequency = radio.getTipoFrecuencia();
+
+                    double currentStation = radio.seleccionarEstacion(whichFrequency, x);
+                    radio.setCurrentStation(currentStation);
+                    radio.setBotonParaGuardad(x);
+
+                    System.out.println(currentStation);
+
+                }
+
+                if (event.getSource() == a9Button) {
+                    int x = 9;
+                    boolean whichFrequency = radio.getTipoFrecuencia();
+
+                    double currentStation = radio.seleccionarEstacion(whichFrequency, x);
+                    radio.setCurrentStation(currentStation);
+                    radio.setBotonParaGuardad(x);
+
+                    System.out.println(currentStation);
+
+                }
+
+                if (event.getSource() == a10Button) {
+                    int x = 10;
+                    boolean whichFrequency = radio.getTipoFrecuencia();
+
+                    double currentStation = radio.seleccionarEstacion(whichFrequency, x);
+                    radio.setCurrentStation(currentStation);
+                    radio.setBotonParaGuardad(x);
+
+                    System.out.println(currentStation);
+
+                }
+
+                if (event.getSource() == a11Button) {
+                    int x = 11;
+                    boolean whichFrequency = radio.getTipoFrecuencia();
+
+                    double currentStation = radio.seleccionarEstacion(whichFrequency, x);
+                    radio.setCurrentStation(currentStation);
+                    radio.setBotonParaGuardad(x);
+
+                    System.out.println(currentStation);
+
+                }
+
+                if (event.getSource() == a12Button) {
+                    int x = 12;
+                    boolean whichFrequency = radio.getTipoFrecuencia();
+
+                    double currentStation = radio.seleccionarEstacion(whichFrequency, x);
+                    radio.setCurrentStation(currentStation);
+                    radio.setBotonParaGuardad(x);
+
+                    System.out.println(currentStation);
+
+                }
+
+                if (event.getSource() == guardarButton) {
+
+                    boolean whichFrequency = radio.getTipoFrecuencia();
+                    int whichBoton = radio.getBotonParaGuardad();
+                    double currentStation = radio.getCurrentStation();
+                    System.out.println(whichBoton);
+                    System.out.println(currentStation);
+
+                    radio.guardarEstacion(currentStation, whichFrequency, whichBoton);
+                    System.out.println("pasa");
+                    System.out.println(radio.getBotonesAM()[0]);
+                    System.out.println(radio.getBotonesFM()[0]);
 
 
-            }
+                }
 
-            if (event.getSource() == a2Button) {
-                int x = 2;
-                boolean whichFrequency = radio.getTipoFrecuencia();
-
-                double currentStation = radio.seleccionarEstacion(whichFrequency,x);
-                radio.setCurrentStation(currentStation);
-                radio.setBotonParaGuardad(x);
-
-                System.out.println(radio.getCurrentStation());
-
-            }
-
-            if (event.getSource() == a3Button) {
-                int x = 3;
-                boolean whichFrequency = radio.getTipoFrecuencia();
-
-                double currentStation = radio.seleccionarEstacion(whichFrequency,x);
-                radio.setCurrentStation(currentStation);
-                radio.setBotonParaGuardad(x);
-
-                System.out.println(radio.getCurrentStation());
-
-            }
-
-            if (event.getSource() == a4Button) {
-                int x = 4;
-                boolean whichFrequency = radio.getTipoFrecuencia();
-
-                double currentStation = radio.seleccionarEstacion(whichFrequency,x);
-                radio.setCurrentStation(currentStation);
-                radio.setBotonParaGuardad(x);
-
-                System.out.println(currentStation);
-
-            }
-
-            if (event.getSource() == a5Button) {
-                int x = 5;
-                boolean whichFrequency = radio.getTipoFrecuencia();
-
-                double currentStation = radio.seleccionarEstacion(whichFrequency,x);
-                radio.setCurrentStation(currentStation);
-                radio.setBotonParaGuardad(x);
-
-                System.out.println(currentStation);
-
-            }
-
-            if (event.getSource() == a6Button) {
-                int x = 6;
-                boolean whichFrequency = radio.getTipoFrecuencia();
-
-                double currentStation = radio.seleccionarEstacion(whichFrequency,x);
-                radio.setCurrentStation(currentStation);
-                radio.setBotonParaGuardad(x);
-
-                System.out.println(currentStation);
-
-            }
-
-            if (event.getSource() == a7Button) {
-                int x = 7;
-                boolean whichFrequency = radio.getTipoFrecuencia();
-
-                double currentStation = radio.seleccionarEstacion(whichFrequency,x);
-                radio.setCurrentStation(currentStation);
-                radio.setBotonParaGuardad(x);
-
-                System.out.println(currentStation);
-
-            }
-
-            if (event.getSource() == a8Button) {
-                int x = 8;
-                boolean whichFrequency = radio.getTipoFrecuencia();
-
-                double currentStation = radio.seleccionarEstacion(whichFrequency,x);
-                radio.setCurrentStation(currentStation);
-                radio.setBotonParaGuardad(x);
-
-                System.out.println(currentStation);
-
-            }
-
-            if (event.getSource() == a9Button) {
-                int x = 9;
-                boolean whichFrequency = radio.getTipoFrecuencia();
-
-                double currentStation = radio.seleccionarEstacion(whichFrequency,x);
-                radio.setCurrentStation(currentStation);
-                radio.setBotonParaGuardad(x);
-
-                System.out.println(currentStation);
-
-            }
-
-            if (event.getSource() == a10Button) {
-                int x = 10;
-                boolean whichFrequency = radio.getTipoFrecuencia();
-
-                double currentStation = radio.seleccionarEstacion(whichFrequency,x);
-                radio.setCurrentStation(currentStation);
-                radio.setBotonParaGuardad(x);
-
-                System.out.println(currentStation);
-
-            }
-
-            if (event.getSource() == a11Button) {
-                int x = 11;
-                boolean whichFrequency = radio.getTipoFrecuencia();
-
-                double currentStation = radio.seleccionarEstacion(whichFrequency,x);
-                radio.setCurrentStation(currentStation);
-                radio.setBotonParaGuardad(x);
-
-                System.out.println(currentStation);
-
-            }
-
-            if (event.getSource() == a12Button) {
-                int x = 12;
-                boolean whichFrequency = radio.getTipoFrecuencia();
-
-                double currentStation = radio.seleccionarEstacion(whichFrequency,x);
-                radio.setCurrentStation(currentStation);
-                radio.setBotonParaGuardad(x);
-
-                System.out.println(currentStation);
+                double station = radio.getCurrentStation();
+                DecimalFormat df = new DecimalFormat("0.00");
+                //String stringStation = Double.toString(df.format(station));
+                radioTextField.setText(df.format(station));
+            } else {
+                radioTextField.setText("----");
 
             }
-
-            if (event.getSource() == guardarButton) {
-
-                boolean whichFrequency = radio.getTipoFrecuencia();
-                int whichBoton = radio.getBotonParaGuardad();
-                double currentStation = radio.getCurrentStation();
-                System.out.println(whichBoton);
-                System.out.println(currentStation);
-
-                radio.guardarEstacion(currentStation, whichFrequency, whichBoton );
-                System.out.println("pasa");
-                System.out.println(radio.getBotonesAM()[0]);
-                System.out.println(radio.getBotonesFM()[0]);
-
-
-
-            }
-
-            double station = radio.getCurrentStation();
-            DecimalFormat df = new DecimalFormat("0.00");
-            //String stringStation = Double.toString(df.format(station));
-            radioTextField.setText(df.format(station));
-
         }
 
 
-
-
+    }
     }
 
 
-}
+
 
 
