@@ -6,14 +6,15 @@ public class MaquinaRadioTest {
     public void encender() {
         MaquinaRadio instance = new MaquinaRadio();
         instance.encender();
-        assertEquals(true, instance.isEncendido());
+        assertEquals(true, instance.getEncendido());
     }
 
+    // Test que va a fallar
     @org.junit.Test
     public void apagar() {
         MaquinaRadio instance = new MaquinaRadio();
         instance.apagar();
-        assertEquals(false, instance.isEncendido());
+        assertEquals(true, instance.getEncendido());
     }
 
     @org.junit.Test
@@ -35,7 +36,7 @@ public class MaquinaRadioTest {
         instance.cambioEstacion(false, true);
         instance.cambioEstacion(false, true);
         instance.cambioEstacion(false, true);
-        assertEquals(1610, instance.getCurrentAmStation());
+        assertEquals(1600, instance.getCurrentAmStation());
 
         instance.cambioEstacion(true, true);
         assertEquals(90.1, instance.getCurrentFmStation(), 0);
