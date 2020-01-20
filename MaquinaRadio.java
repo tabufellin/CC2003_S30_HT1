@@ -8,7 +8,7 @@ public class MaquinaRadio implements Radio {
     int minCurrentAmStation = 530;
     double currentFmStation = 90.1;
     boolean tipoFrecuencia = false;   // false para FM, true para AM
-    double[] botonesAM;
+    double[] botonesAM ;
     double[] botonesFM;
 
 
@@ -16,11 +16,17 @@ public class MaquinaRadio implements Radio {
     double currentStation;
 
     public MaquinaRadio() {
+        int cuantasEstaciones = 12;
 
         encendido = true;
         botonesAM = new double[12];
+        for (int i = 0; i <= cuantasEstaciones-1; i++) {
+            botonesAM[i] = 550;
+        }
         botonesFM = new double[12];
-
+        for (int i = 0; i <= cuantasEstaciones-1; i++) {
+            botonesFM[i] = 90.1;
+        }
 
     }
 
@@ -135,7 +141,11 @@ public class MaquinaRadio implements Radio {
         return currentAmStation;
     }
 
-    public boolean isTipoFrecuencia() {
+    public boolean getTipoFrecuencia() {
         return tipoFrecuencia;
+    }
+
+    public void setEncendido (boolean valor){
+        encendido = valor;
     }
 }
