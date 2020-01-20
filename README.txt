@@ -4,7 +4,9 @@ Repositorio de Estructuras de datos
 
 This repository contains the necessary files for a radio application built for the Algoritmos y 
 Estructuras de datos course. The folders in this repository were used for tests and are not needed to run 
-the radio. The needed files are:
+the radio. 
+
+The needed files are:
 
 *Main.java the main method which runs the radio.
 *Radio.java the interface of the project.
@@ -13,3 +15,4 @@ the radio. The needed files are:
 *RadioGUI.form the design of the UI
 *RadioGUI.java buttons, labels, and actions used in the buttons
 
+Radio usage: Contains a video showing the usage of the radio application.
