@@ -46,7 +46,9 @@ public class MaquinaRadio implements Radio {
 
 // bien
     public void encender() {
+
         this.estado = true;
+
     }
 // bien
     public void apagar() {

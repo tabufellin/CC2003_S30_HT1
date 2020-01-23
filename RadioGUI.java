@@ -71,12 +71,10 @@ public class RadioGUI extends JFrame {
             if (event.getSource() == onOffButton) {
                 if (radio.getEstado()) {
                     radio.apagar();
-                    radio.setEncendido(false);
                     System.out.println("se apago");
                     System.out.println(radio.getEstado());
                 } else {
                     radio.encender();
-                    radio.setEncendido(true);
                     System.out.println("se encendio");
                     System.out.println(radio.getEstado());
                 }
