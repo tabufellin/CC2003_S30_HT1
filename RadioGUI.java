@@ -121,7 +121,7 @@ public class RadioGUI extends JFrame {
                     int x = 1;
 
                     boolean whichFrequency = radio.getTipoFrecuencia();
-
+                    double xxInvalid;
                     double xxInvalid = radio.seleccionarEstacion(whichFrequency, x);
                     radio.setCurrentStation(currentStation);
                     botonParaGuardad = x;
