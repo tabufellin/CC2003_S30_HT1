@@ -16,12 +16,11 @@ public interface Radio {
     // Seleccionar la estacion guardada en el boton
     public double seleccionarEstacion(boolean tipoFrecuencia, int boton);
 
+    public double getEstacion();
 
-    //Cambio estacion1
-    //Actual = xxxx;
-    //if(am) {
-    //Cambiar estacion;
-    //}
+    public boolean getTipoFrecuencia();
+
+    public boolean getEstado();
 
 
 

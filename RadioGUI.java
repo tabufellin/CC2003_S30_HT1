@@ -62,26 +62,27 @@ public class RadioGUI extends JFrame {
     private class HandlerClass implements ActionListener {
 
         MaquinaRadio radio = new MaquinaRadio();
+        int botonParaGuardad = 0;
 
         public void actionPerformed(ActionEvent event) {
 
 
 
             if (event.getSource() == onOffButton) {
-                if (radio.getEncendido()) {
+                if (radio.getEstado()) {
                     radio.apagar();
                     radio.setEncendido(false);
                     System.out.println("se apago");
-                    System.out.println(radio.getEncendido());
+                    System.out.println(radio.getEstado());
                 } else {
                     radio.encender();
                     radio.setEncendido(true);
                     System.out.println("se encendio");
-                    System.out.println(radio.getEncendido());
+                    System.out.println(radio.getEstado());
                 }
             }
 
-            boolean on = radio.getEncendido();
+            boolean on = radio.getEstado();
 
             if (on) {
 
@@ -115,16 +116,16 @@ public class RadioGUI extends JFrame {
                     System.out.println(radio.currentFmStation);
                     System.out.println(radio.currentAmStation);
                 }
-
+                /// HAY QUE CAMBIAR TODOS LOS METODOS  DE LOS BOTONES YA QUE NO PUEDO TENER EL setCurrentStation porque no esta dentro de la interface
                 if (event.getSource() == a1Button) {
                     int x = 1;
-                    boolean whichFrequency = radio.getTipoFrecuencia();
 
+                    boolean whichFrequency = radio.getTipoFrecuencia();
                     double currentStation = radio.seleccionarEstacion(whichFrequency, x);
                     radio.setCurrentStation(currentStation);
-                    radio.setBotonParaGuardad(x);
+                    botonParaGuardad = x;
 
-                    System.out.println(radio.getCurrentStation());
+                    System.out.println(radio.getEstacion());
 
 
                 }
@@ -135,9 +136,9 @@ public class RadioGUI extends JFrame {
 
                     double currentStation = radio.seleccionarEstacion(whichFrequency, x);
                     radio.setCurrentStation(currentStation);
-                    radio.setBotonParaGuardad(x);
+                    botonParaGuardad = x;
 
-                    System.out.println(radio.getCurrentStation());
+                    System.out.println(radio.getEstacion());
 
                 }
 
@@ -147,9 +148,9 @@ public class RadioGUI extends JFrame {
 
                     double currentStation = radio.seleccionarEstacion(whichFrequency, x);
                     radio.setCurrentStation(currentStation);
-                    radio.setBotonParaGuardad(x);
+                    botonParaGuardad = x;
 
-                    System.out.println(radio.getCurrentStation());
+                    System.out.println(radio.getEstacion());
 
                 }
 
@@ -159,7 +160,7 @@ public class RadioGUI extends JFrame {
 
                     double currentStation = radio.seleccionarEstacion(whichFrequency, x);
                     radio.setCurrentStation(currentStation);
-                    radio.setBotonParaGuardad(x);
+                    botonParaGuardad = x;
 
                     System.out.println(currentStation);
 
@@ -171,7 +172,7 @@ public class RadioGUI extends JFrame {
 
                     double currentStation = radio.seleccionarEstacion(whichFrequency, x);
                     radio.setCurrentStation(currentStation);
-                    radio.setBotonParaGuardad(x);
+                    botonParaGuardad = x;
 
                     System.out.println(currentStation);
 
@@ -183,7 +184,7 @@ public class RadioGUI extends JFrame {
 
                     double currentStation = radio.seleccionarEstacion(whichFrequency, x);
                     radio.setCurrentStation(currentStation);
-                    radio.setBotonParaGuardad(x);
+                    botonParaGuardad = x;
 
                     System.out.println(currentStation);
 
@@ -195,7 +196,7 @@ public class RadioGUI extends JFrame {
 
                     double currentStation = radio.seleccionarEstacion(whichFrequency, x);
                     radio.setCurrentStation(currentStation);
-                    radio.setBotonParaGuardad(x);
+                    botonParaGuardad = x;
 
                     System.out.println(currentStation);
 
@@ -207,7 +208,7 @@ public class RadioGUI extends JFrame {
 
                     double currentStation = radio.seleccionarEstacion(whichFrequency, x);
                     radio.setCurrentStation(currentStation);
-                    radio.setBotonParaGuardad(x);
+                    botonParaGuardad = x;
 
                     System.out.println(currentStation);
 
@@ -219,7 +220,7 @@ public class RadioGUI extends JFrame {
 
                     double currentStation = radio.seleccionarEstacion(whichFrequency, x);
                     radio.setCurrentStation(currentStation);
-                    radio.setBotonParaGuardad(x);
+                    botonParaGuardad = x;
 
                     System.out.println(currentStation);
 
@@ -231,7 +232,7 @@ public class RadioGUI extends JFrame {
 
                     double currentStation = radio.seleccionarEstacion(whichFrequency, x);
                     radio.setCurrentStation(currentStation);
-                    radio.setBotonParaGuardad(x);
+                    botonParaGuardad = x;
 
                     System.out.println(currentStation);
 
@@ -243,7 +244,7 @@ public class RadioGUI extends JFrame {
 
                     double currentStation = radio.seleccionarEstacion(whichFrequency, x);
                     radio.setCurrentStation(currentStation);
-                    radio.setBotonParaGuardad(x);
+                    botonParaGuardad = x;
 
                     System.out.println(currentStation);
 
@@ -255,7 +256,7 @@ public class RadioGUI extends JFrame {
 
                     double currentStation = radio.seleccionarEstacion(whichFrequency, x);
                     radio.setCurrentStation(currentStation);
-                    radio.setBotonParaGuardad(x);
+                    botonParaGuardad = x;
 
                     System.out.println(currentStation);
 
@@ -264,20 +265,17 @@ public class RadioGUI extends JFrame {
                 if (event.getSource() == guardarButton) {
 
                     boolean whichFrequency = radio.getTipoFrecuencia();
-                    int whichBoton = radio.getBotonParaGuardad();
-                    double currentStation = radio.getCurrentStation();
+                    int whichBoton = botonParaGuardad;
+                    double currentStation = radio.getEstacion();
                     System.out.println(whichBoton);
                     System.out.println(currentStation);
 
                     radio.guardarEstacion(currentStation, whichFrequency, whichBoton);
                     System.out.println("pasa");
-                    System.out.println(radio.getBotonesAM()[0]);
-                    System.out.println(radio.getBotonesFM()[0]);
-
 
                 }
 
-                double station = radio.getCurrentStation();
+                double station = radio.getEstacion();
                 DecimalFormat df = new DecimalFormat("0.00");
                 //String stringStation = Double.toString(df.format(station));
                 radioTextField.setText(df.format(station));

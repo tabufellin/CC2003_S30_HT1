@@ -13,7 +13,7 @@
 public class MaquinaRadio implements Radio {
 
     static final String UNDER_DEVELOPMENT_METHOD = "Method is under development";
-    boolean encendido;
+    boolean estado;
     String estacionGuardada;
     int currentAmStation = 550;
     int maxCurrentAmStation = 1610;
@@ -22,16 +22,17 @@ public class MaquinaRadio implements Radio {
     boolean tipoFrecuencia = false;   // false para FM, true para AM
     double[] botonesAM ;
     double[] botonesFM;
-    int botonParaGuardad;
 
 
     // hay que darle la estacion que va a estar en ese momento
     double currentStation;
 
+
+// el constructor parece estar bien aun con los nuevos cambios
     public MaquinaRadio() {
         int cuantasEstaciones = 12;
 
-        encendido = true;
+        estado = true;
         botonesAM = new double[12];
        for (int i = 0; i <= cuantasEstaciones-1; i++) {
             botonesAM[i] = 550;
@@ -43,16 +44,16 @@ public class MaquinaRadio implements Radio {
 
     }
 
-
+// bien
     public void encender() {
-        this.encendido = true;
+        this.estado = true;
     }
-
+// bien
     public void apagar() {
-        this.encendido = false;
+        this.estado = false;
     }
 
-    // Creo que ya esta terminado este metodo
+    // bien
     public void cambioTipoFrecuencia(boolean tipo) {
         this.tipoFrecuencia = !this.tipoFrecuencia;
         if (tipo) {
@@ -108,8 +109,7 @@ public class MaquinaRadio implements Radio {
         }
     }
 
-//***********************INCOMPLETE METHODS*****************************************************************************
-
+    // bien
     public void guardarEstacion(double estacion, boolean tipoFrecuencia, int boton){
 
         boton -=1;
@@ -146,47 +146,18 @@ public class MaquinaRadio implements Radio {
 
     // Methods to obtain current value of variables; getters
 
-    public double getCurrentFmStation() {
-        return this.currentFmStation;
+     // bien
+    public boolean getEstado() {
+        return estado;
     }
 
-    public boolean getEncendido() {
-        return encendido;
-    }
-
-    public String getEstacionGuardada() {
-        return estacionGuardada;
-    }
-
-    public int getCurrentAmStation() {
-        return currentAmStation;
-    }
-
+    //bien
     public boolean getTipoFrecuencia() {
         return tipoFrecuencia;
     }
 
-    public void setEncendido (boolean valor){
-        encendido = valor;
-    }
-
-    public double[] getBotonesAM () {
-        return botonesAM;
-    }
-
-    public double[] getBotonesFM () {
-        return botonesFM;
-    }
-
-    public int getBotonParaGuardad() {
-        return botonParaGuardad;
-    }
-
-    public void setBotonParaGuardad(int botonParaGuardad) {
-        this.botonParaGuardad = botonParaGuardad;
-    }
-
-    public double getCurrentStation() {
+    //bien
+    public double getEstacion() {
         return currentStation;
     }
 
