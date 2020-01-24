@@ -12,12 +12,8 @@
  */
 public class MaquinaRadio implements Radio {
 
-    static final String UNDER_DEVELOPMENT_METHOD = "Method is under development";
     boolean estado;
-    String estacionGuardada;
     int currentAmStation = 550;
-    int maxCurrentAmStation = 1610;
-    int minCurrentAmStation = 530;
     double currentFmStation = 90.1;
     boolean tipoFrecuencia = false;   // false para FM, true para AM
     double[] botonesAM ;
@@ -44,29 +40,25 @@ public class MaquinaRadio implements Radio {
 
     }
 
-// bien
-    public void encender() {
 
-        this.estado = true;
-
-    }
-// bien
-    public void apagar() {
-        this.estado = false;
+    public boolean encenderApagar() {
+        this.estado = !this.estado;
+        return this.estado;
     }
 
     // bien
-    public void cambioTipoFrecuencia(boolean tipo) {
+    public boolean cambioTipoFrecuencia(boolean tipo) {
         this.tipoFrecuencia = !this.tipoFrecuencia;
         if (tipo) {
-            currentStation=  currentAmStation;
+            currentStation =  currentAmStation;
         } else {
             currentStation = currentFmStation;
         }
 
+        return this.tipoFrecuencia;
     }
 
-    public void cambioEstacion(boolean tipo, boolean tipoFrecuencia) {
+    public double cambioEstacion(boolean tipo, boolean tipoFrecuencia) {
         // AM frequency
         if (tipoFrecuencia) {
             if (tipo) {
@@ -95,6 +87,7 @@ public class MaquinaRadio implements Radio {
             } else if (currentFmStation < 87.9) {
                 currentFmStation = 107.9;
             }
+
         }
 
         if (tipoFrecuencia) {
@@ -103,10 +96,11 @@ public class MaquinaRadio implements Radio {
             currentStation = currentFmStation;
         }
 
+        return currentStation;
     }
 
     // bien
-    public void guardarEstacion(double estacion, boolean tipoFrecuencia, int boton){
+    public void guardarEstacion(double estacion, boolean tipoFrecuencia, int boton) {
 
         boton -=1;
         //if AM --------else FM
@@ -157,7 +151,4 @@ public class MaquinaRadio implements Radio {
         return currentStation;
     }
 
-    public void setCurrentStation(double currentStation) {
-        this.currentStation = currentStation;
-    }
 }
