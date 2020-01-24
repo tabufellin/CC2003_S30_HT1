@@ -7,7 +7,7 @@
  *
  *
  * @author Sebastian Gonzales (tabufellin) Pablo Ruiz (PingMaster99)
- * @version 1.0
+ * @version 2.0
  * @since 2020-01-19
  */
 public class MaquinaRadio implements Radio {
@@ -70,26 +70,20 @@ public class MaquinaRadio implements Radio {
         // AM frequency
         if (tipoFrecuencia) {
             if (tipo) {
-                if (currentAmStation < maxCurrentAmStation) {
-                    currentAmStation += 10;
-                }
-                else {
-                    // falta asignarle el valor
-                    currentAmStation = minCurrentAmStation;
-                }
-
+                currentAmStation += 10;
             } else {
-                if (currentAmStation > minCurrentAmStation + 10) {
-                    currentAmStation -= 10;
-                }
-                else {
-                    currentAmStation = maxCurrentAmStation;
-                }
+                currentAmStation -= 10;
+            }
+
+            if (currentAmStation > 1610) {
+                currentAmStation = 530;
+            } else if (currentAmStation < 530) {
+                currentAmStation = 1610;
             }
 
             // FM frequency
         } else {
-            if (tipo && currentFmStation < 107.9) {
+            if (tipo) {
                 currentFmStation += 0.2;
             } else {
                 currentFmStation -= 0.2;
@@ -98,7 +92,6 @@ public class MaquinaRadio implements Radio {
             // Checks if the station is within the defined range, and overflows or underflows accordingly
             if (currentFmStation > 107.9) {
                 currentFmStation = 87.9;
-
             } else if (currentFmStation < 87.9) {
                 currentFmStation = 107.9;
             }
@@ -109,6 +102,7 @@ public class MaquinaRadio implements Radio {
         } else {
             currentStation = currentFmStation;
         }
+
     }
 
     // bien
