@@ -269,13 +269,19 @@ public class RadioGUI extends JFrame {
 
                     radio.guardarEstacion(stationPlayed, whichFrequency, whichBoton);
                     System.out.println("pasa");
-
                 }
 
                 double station = radio.getEstacion();
                 DecimalFormat df = new DecimalFormat("0.00");
                 //String stringStation = Double.toString(df.format(station));
-                radioTextField.setText(df.format(station));
+                if(radio.getTipoFrecuencia()) {
+                    df = new DecimalFormat("0");
+                    radioTextField.setText(df.format(station) + " AM");
+                } else {
+                    radioTextField.setText(df.format(station) + " FM");
+
+                }
+
             } else {
                 radioTextField.setText("----");
 
