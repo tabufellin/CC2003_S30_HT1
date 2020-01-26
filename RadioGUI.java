@@ -1,3 +1,13 @@
+/**
+ * <h1>RadioGUI/h1>
+ * This class includes the elements used in the GUI and the logic behind button presses.
+ * <p>
+ *
+ *
+ * @author Sebastian Gonzales (tabufellin) Pablo Ruiz (PingMaster99)
+ * @version 2.0
+ * @since 2020-01-19
+ */
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -68,7 +78,7 @@ public class RadioGUI extends JFrame {
         public void actionPerformed(ActionEvent event) {
 
 
-
+            // Turn radio on and off
             if (event.getSource() == onOffButton) {
                 if (radio.getEstado()) {
                     radio.encenderApagar();
@@ -85,7 +95,7 @@ public class RadioGUI extends JFrame {
 
             if (on) {
 
-
+                // Changes frequency
                 if (event.getSource() == AMFMButton) {
                     if (radio.getTipoFrecuencia()) {
                         radio.cambioTipoFrecuencia(false);
@@ -100,6 +110,7 @@ public class RadioGUI extends JFrame {
                     }
                 }
 
+                // Reduces the station
                 if (event.getSource() == back) {
                     boolean whichFrequency = radio.getTipoFrecuencia();
                     radio.cambioEstacion(false, whichFrequency);
@@ -108,6 +119,7 @@ public class RadioGUI extends JFrame {
                     System.out.println(radio.currentAmStation);
                 }
 
+                // Increases the station
                 if (event.getSource() == forward) {
                     boolean whichFrequency = radio.getTipoFrecuencia();
                     radio.cambioEstacion(true, whichFrequency);
@@ -115,12 +127,12 @@ public class RadioGUI extends JFrame {
                     System.out.println(radio.currentFmStation);
                     System.out.println(radio.currentAmStation);
                 }
-                /// HAY QUE CAMBIAR TODOS LOS METODOS  DE LOS BOTONES YA QUE NO PUEDO TENER EL setCurrentStation porque no esta dentro de la interface
-                if (event.getSource() == a1Button) {
-                    int x = 1;
 
+                /// Gets the button that is pressed and displays the station
+                if (event.getSource() == a1Button) {
+
+                    int x = 1;
                     boolean whichFrequency = radio.getTipoFrecuencia();
-                    double xxInvalid;
                     stationPlayed = radio.seleccionarEstacion(whichFrequency, x);
                     botonParaGuardad = x;
 
@@ -130,11 +142,10 @@ public class RadioGUI extends JFrame {
                 }
 
                 if (event.getSource() == a2Button) {
+
                     int x = 2;
                     boolean whichFrequency = radio.getTipoFrecuencia();
-
                     stationPlayed = radio.seleccionarEstacion(whichFrequency, x);
-                    
                     botonParaGuardad = x;
 
                     System.out.println(radio.getEstacion());
@@ -142,23 +153,20 @@ public class RadioGUI extends JFrame {
                 }
 
                 if (event.getSource() == a3Button) {
+
                     int x = 3;
                     boolean whichFrequency = radio.getTipoFrecuencia();
-
                     stationPlayed = radio.seleccionarEstacion(whichFrequency, x);
-                    
                     botonParaGuardad = x;
-
                     System.out.println(radio.getEstacion());
 
                 }
 
                 if (event.getSource() == a4Button) {
+
                     int x = 4;
                     boolean whichFrequency = radio.getTipoFrecuencia();
-
                     stationPlayed = radio.seleccionarEstacion(whichFrequency, x);
-                    
                     botonParaGuardad = x;
 
                     System.out.println(stationPlayed);
@@ -166,11 +174,10 @@ public class RadioGUI extends JFrame {
                 }
 
                 if (event.getSource() == a5Button) {
+
                     int x = 5;
                     boolean whichFrequency = radio.getTipoFrecuencia();
-
                     stationPlayed = radio.seleccionarEstacion(whichFrequency, x);
-                    
                     botonParaGuardad = x;
 
                     System.out.println(stationPlayed);
@@ -178,11 +185,10 @@ public class RadioGUI extends JFrame {
                 }
 
                 if (event.getSource() == a6Button) {
+
                     int x = 6;
                     boolean whichFrequency = radio.getTipoFrecuencia();
-
                     stationPlayed = radio.seleccionarEstacion(whichFrequency, x);
-                    
                     botonParaGuardad = x;
 
                     System.out.println(stationPlayed);
@@ -190,21 +196,21 @@ public class RadioGUI extends JFrame {
                 }
 
                 if (event.getSource() == a7Button) {
+
                     int x = 7;
                     boolean whichFrequency = radio.getTipoFrecuencia();
-
                     stationPlayed = radio.seleccionarEstacion(whichFrequency, x);
                     botonParaGuardad = x;
+
                     System.out.println(stationPlayed);
 
                 }
 
                 if (event.getSource() == a8Button) {
+
                     int x = 8;
                     boolean whichFrequency = radio.getTipoFrecuencia();
-
                     stationPlayed = radio.seleccionarEstacion(whichFrequency, x);
-                    
                     botonParaGuardad = x;
 
                     System.out.println(stationPlayed);
@@ -212,11 +218,10 @@ public class RadioGUI extends JFrame {
                 }
 
                 if (event.getSource() == a9Button) {
+
                     int x = 9;
                     boolean whichFrequency = radio.getTipoFrecuencia();
-
                     stationPlayed = radio.seleccionarEstacion(whichFrequency, x);
-                    
                     botonParaGuardad = x;
 
                     System.out.println(stationPlayed);
@@ -224,11 +229,10 @@ public class RadioGUI extends JFrame {
                 }
 
                 if (event.getSource() == a10Button) {
+
                     int x = 10;
                     boolean whichFrequency = radio.getTipoFrecuencia();
-
                     stationPlayed = radio.seleccionarEstacion(whichFrequency, x);
-                    
                     botonParaGuardad = x;
 
                     System.out.println(stationPlayed);
@@ -236,11 +240,10 @@ public class RadioGUI extends JFrame {
                 }
 
                 if (event.getSource() == a11Button) {
+
                     int x = 11;
                     boolean whichFrequency = radio.getTipoFrecuencia();
-
                     stationPlayed = radio.seleccionarEstacion(whichFrequency, x);
-                    
                     botonParaGuardad = x;
 
                     System.out.println(stationPlayed);
@@ -248,17 +251,17 @@ public class RadioGUI extends JFrame {
                 }
 
                 if (event.getSource() == a12Button) {
+
                     int x = 12;
                     boolean whichFrequency = radio.getTipoFrecuencia();
-
                     stationPlayed = radio.seleccionarEstacion(whichFrequency, x);
-                    
                     botonParaGuardad = x;
 
                     System.out.println(stationPlayed);
 
                 }
 
+                // Saves the station in the last button pressed
                 if (event.getSource() == guardarButton) {
 
                     boolean whichFrequency = radio.getTipoFrecuencia();
@@ -271,9 +274,10 @@ public class RadioGUI extends JFrame {
                     System.out.println("pasa");
                 }
 
+                // Formats the station to be displayed on screen
                 double station = radio.getEstacion();
                 DecimalFormat df = new DecimalFormat("0.00");
-                //String stringStation = Double.toString(df.format(station));
+
                 if(radio.getTipoFrecuencia()) {
                     df = new DecimalFormat("0");
                     radioTextField.setText(df.format(station) + " AM");
@@ -281,7 +285,7 @@ public class RadioGUI extends JFrame {
                     radioTextField.setText(df.format(station) + " FM");
 
                 }
-
+            //Display when radio is off
             } else {
                 radioTextField.setText("----");
 

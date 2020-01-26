@@ -1,3 +1,13 @@
+/**
+ * <h1>Radio</h1>
+ * This is the interface used in the radio program.
+ * <p>
+ *
+ *
+ * @author Sebastian Gonzales (tabufellin) Pablo Ruiz (PingMaster99)
+ * @version 2.0
+ * @since 2020-01-19
+ */
 public interface Radio {
 
     //Cambio de frecuencia e.g. 99.9 al 100.0
